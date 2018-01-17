@@ -5,7 +5,31 @@
 
 {% block extrastyle %}
 	{{ block.super }}
-	<style>table {width: 100%;}</style>
+	<style>
+		#content-main {
+
+		}
+		.rq-dashboard hr {
+			border-bottom: 1px dotted #333;
+		}
+		.rq-dashboard .module {
+			margin-bottom: 1rem;
+		}
+		.rq-dashboard table {
+			width: 12rem;
+		}
+		.rq-dashboard caption {
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+		.rq-dashboard .row2 {
+			background-color: #DCDEE0;
+		}
+		.rq-dashboard th, tr {
+			padding: 1rem;
+			text-align: right;
+		}
+	</style>
 {% endblock %}
 
 {% block extrahead %}
@@ -18,7 +42,7 @@
 {% block bodyclass %}dashboard{% endblock %}
 
 {% block content %}
-	<div id="content-main">
+	<div class="rq-dashboard" id="content-main">
 		<div class="module">
 			<table id="queues">
 				<caption>{% trans "Queues" %}</caption>
@@ -40,6 +64,8 @@
 				</tbody>
 			</table>
 		</div>
+
+		<hr>
 
 		<div class="module">
 			<table id="workers">
@@ -66,6 +92,9 @@
 		</div>
 
 		{% if scheduler %}
+
+		<hr>
+
 		<div class="module">
 			<table id="scheduled">
 				<caption>{% trans "Scheduler" %}</caption>
